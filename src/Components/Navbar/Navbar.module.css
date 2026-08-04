@@ -7,5 +7,7 @@ nav{
     border: solid  rgb(29, 127, 192);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between
+    justify-content: space-between;
+  
+    
 }
