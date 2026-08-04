@@ -1,8 +1,8 @@
 
 .search-bar {
-    width: 100%;
+    width: 50%;
     height: 50px;
-    background-color: rgb(79, 79, 158);
+    background-color: rgb(71, 131, 170);
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -11,13 +11,12 @@
     height: calc(100% - 20px);
     flex: 1;
     border: none;
-    border-left:  1px solid rgb(79, 79, 158);
-    border-right:  1px solid rgb(79, 79, 158);
-    color: rgb(20,20,20);
+    border-left:  1px solid  rgb(71, 131, 170);
+    border-right:  1px solid  rgb(71, 131, 170);;
     outline: none;
     padding: 10px;
     font-size: x-large;
-    background-color:rgb(79, 79, 158)
+    background-color: rgb(49, 77, 95);
 }
 .search-icon{
     height: 30px;

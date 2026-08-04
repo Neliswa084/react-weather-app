@@ -1,4 +1,5 @@
 import './App.css'
+import { Navbar } from './Components/Navbar/Navbar'
 import { Searchbar } from './Components/Search/Searchbar'
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-    <Searchbar />
+     <Navbar />
     
     </>
   )
