@@ -1,9 +1,14 @@
 import React from 'react'
 import {Text} from '../../Components/Text/Text'
 import styles from './Searchbar.module.css'
-// import searchIcon from '../../assets/searchIcon.png'
+import { useNavigate } from 'react-router-dom'
 
 export const Searchbar = () => {
+
+  const navigate = useNavigate()
+  const navigateToWeatherPage = () => {
+    navigate('/weather')
+  }
   return (
       <div className={styles['search-bar']}>
       <input 
@@ -12,7 +17,7 @@ export const Searchbar = () => {
         className={styles['search-input']}
       
       />
-       <button className={styles['search-btn']}>Search</button>
+       <button onClick={navigateToWeatherPage} className={styles['search-btn']}>Search</button>
     
     </div>
    
