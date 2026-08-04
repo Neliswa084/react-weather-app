@@ -2,6 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import { Navbar } from './Components/Navbar/Navbar'
 import { Searchbar } from './Components/Search/Searchbar'
+import {Routes,Route} from 'react-router-dom'
+import { SearchPage } from './pages/SearchPage'
+import { WeatherPage } from './pages/WeatherPage'
 
 function App() {
 
@@ -16,8 +19,14 @@ function App() {
      units={units} 
      changeUnits={(newUnits) => setUnits(newUnits)}
      isChecked={isDark}
-     handleChange={() => setIsDark(!isDark)}/>
-    
+     handleChange={() => setIsDark(!isDark)}
+     />
+     <Routes>
+      <Route path='/'  element={<SearchPage/>} />
+      <Route path='/weather' element ={<WeatherPage/>} />
+     </Routes>
+
+      
     </div>
    
     </>
