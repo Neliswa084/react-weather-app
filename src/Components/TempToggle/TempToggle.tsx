@@ -4,14 +4,11 @@ import './TempToggle.module.css'
 export const TempToggle = () => {
   return (
     <>
+    
+    <button>C°</button>
+    <button>F°</button>
   
-        <label className="switch">
-  <input type="checkbox"/>
-  <span className="slider">C</span>
-   <input type="checkbox"/>
-  <span className="slider">F</span>
-</label>
           
-          </>
+   </>
   )
 }
