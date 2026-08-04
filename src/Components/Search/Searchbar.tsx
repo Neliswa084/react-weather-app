@@ -8,12 +8,12 @@ export const Searchbar = () => {
       <div className={styles['search-bar']}>
       <input 
         type='text' 
-        placeholder='search by title, URL, description or tag' 
+        placeholder='Search for a city' 
         className={styles['search-input']}
       
       />
-       <Text variant={'span'} style={{color: 'rgb(20,20,20)', padding: 10, fontSize:30}}>Search</Text>
-      {/* <img src={searchIcon} alt='search icon' className={styles['search-icon']} /> */}
+       <button className={styles['search-btn']}>Search</button>
+    
     </div>
    
   )
