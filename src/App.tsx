@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-     <Navbar units={units}  changeUnits={() => setUnits("F°")}/>
+     <Navbar units={units}  changeUnits={(newUnits) => setUnits(newUnits)}/>
       
     
     </>
