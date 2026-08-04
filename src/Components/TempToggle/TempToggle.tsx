@@ -1,5 +1,6 @@
 import React from 'react'
 import './TempToggle.module.css'
+import styles from './TempToggle.module.css'
 
 type TempToggleProps={
   units: string
@@ -9,9 +10,10 @@ type TempToggleProps={
 export const TempToggle: React.FC<TempToggleProps> = ({ units,changeUnits }) => {
   return (
     <>
-    
-    <button onClick={() => changeUnits("C°")}>{units}</button>
-    <button onClick={() => changeUnits("F°")}>{units}</button>
+    <div className={styles['units-container']}>
+    <button onClick={() => changeUnits("C°")}>C°</button>
+    <button onClick={() => changeUnits("F°")}>F°</button>
+    </div>
   
           
    </>
