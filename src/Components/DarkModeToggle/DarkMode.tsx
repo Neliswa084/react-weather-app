@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from  './DarkMode.module.css'
 
+import lightModeIcon from '../../assets/contrast.png'
+import darkModeIcon from '../../assets/moon.png'
+
 type DarkModeProps={
     handleChange: () => void;
     isChecked: boolean
@@ -8,15 +11,11 @@ type DarkModeProps={
 
 export const DarkMode:React.FC<DarkModeProps> = ({handleChange, isChecked}) => {
   return (
-    <div className={styles['toggle-container']} >
-        <input
-        type="checkbox" 
-        className= {styles['toggle']}
-        id="check"
-        onChange={handleChange}
-        checked={isChecked}
-        />
-        <label htmlFor="check">Dark Mode</label>
-    </div>
+      <button onClick={handleChange} className={styles['dark-btn']}>
+        <img src={isChecked ? darkModeIcon : lightModeIcon} 
+        alt="Dark Mode Toggle" 
+        width={25} 
+        height={25}/>
+      </button>
   )
 }
