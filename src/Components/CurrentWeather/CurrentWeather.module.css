@@ -1,3 +1,30 @@
 .icon{
     width: 40px;
+    color: var(--primary-color);
+
+}
+.current-weather-container{
+    display: flex;
+    padding-top: 30px;
+    flex-wrap: wrap;
+   
+}
+.current-weather-details{
+    flex: 1;
+    line-height: 30px;
+
+}
+.current-weather-icon{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sun-icon{
+    width: 100px;
+}
+
+link{
+    color: var(primary-color);
+    
 }
