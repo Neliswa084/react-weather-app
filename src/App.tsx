@@ -5,6 +5,7 @@ import { Searchbar } from './Components/Search/Searchbar'
 import {Routes,Route} from 'react-router-dom'
 import { SearchPage } from './pages/SearchPage'
 import { WeatherPage } from './pages/WeatherPage'
+import { NotFound } from './pages/NotFound'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
      <Routes>
       <Route path='/'  element={<SearchPage/>} />
       <Route path='/weather' element ={<WeatherPage/>} />
+      <Route path='*' element={<NotFound/>}/>
      </Routes>
 
       

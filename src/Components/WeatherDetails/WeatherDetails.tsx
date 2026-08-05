@@ -6,19 +6,21 @@ import styles from './WeatherDetails.module.css'
 export const WeatherDetails = () => {
   return (
     <>
-    <div className={styles['weather-details-container']}>
-    <Card>
-    
-    <Text variant={'h2'}>Humidity: 50%</Text>
-     </Card>
-      <Card>
-        <Text variant={'h2'}>Wind Speed: 10 km/h</Text>  
-      </Card>
-       <Card>
-        <Text variant={'h2'}>Temperature : 23°C</Text>
-        
-      </Card>
-</div>
+        <Card>
+     <div className={styles['weather-details-container']}>
+      <div className={styles['card']}>
+       <Text variant={'h2'}>Humidity 50%</Text>
+       </div>
+       <div  className={styles['card']}>
+     <Text variant={'h2'}>Wind Speed: 10 km/h</Text>  
+     </div>
+     <div className={styles['card']}>
+      <Text variant={'h2'}>Temperature : 23°C</Text>
+      </div>
+      </div>
+
+
+        </Card>
       </>
    
   )
