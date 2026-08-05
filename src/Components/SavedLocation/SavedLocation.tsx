@@ -1,23 +1,40 @@
 import React from 'react'
 import {Text} from '../../Components/Text/Text'
+import { Card } from '../Card/Card'
 
-export type SavedLocationProps = {
+// export type SavedLocationProps = {
 
-    city: string ,
-    temparature: string,
-    weatherCondition: string,
+//     city: string ,
+//     temparature: string,
+//     weatherCondition: string,
    
-}
+// }
 
-export const SavedLocation:React.FC<SavedLocationProps> = ({city,temparature,weatherCondition}) => {
+export const SavedLocation = () => {
   return (
     <>
-    <div>
-        <Text variant={'h2'}>Durban</Text>
-        <Text variant={'h3'}>27</Text>
-        <Text variant={'h4'}>Sunny</Text>
-    </div>
+    <Card>
+        <div>
+        <Text variant={'h2'}>CapeTown</Text>
+        <Text variant={'h3'}>18°</Text>
+        <Text variant={'h4'}>Cloudy⛅</Text>
+</div>
+    </Card>
     
+       <Card>
+
+        <Text variant={'h2'}>Durban</Text>
+        <Text variant={'h3'}>28°</Text>
+        <Text variant={'h4'}>Sunny</Text>
+
+    </Card>
+       <Card>
+
+        <Text variant={'h2'}>PMB</Text>
+        <Text variant={'h3'}>24°</Text>
+        <Text variant={'h4'}>Sunny</Text>
+
+    </Card>
     
     </>
   )

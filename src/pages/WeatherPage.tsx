@@ -6,6 +6,7 @@ import { ForecastTab } from '../Components/WeatherForecast/ForecastTabs/Forecast
 import { HourlyForecast } from '../Components/WeatherForecast/HourlyForecast/HourlyForecast'
 import { DailyForecast } from '../Components/WeatherForecast/DailyForecast/DailyForecast'
 import { SavedLocationCard } from '../Components/SavedLocation/SavedLocationCard'
+import { SavedLocation } from '../Components/SavedLocation/SavedLocation'
 
 export const WeatherPage = () => {
   
@@ -18,7 +19,7 @@ export const WeatherPage = () => {
     <ForecastTab activeTab={activeTab} onTabChange={setActiveTab}/>
     {activeTab ==='hourly' && <HourlyForecast/>}
     {activeTab ==='daily' && <DailyForecast/>}
-    <SavedLocationCard />
+    <SavedLocation />
     </>
   )
 }
