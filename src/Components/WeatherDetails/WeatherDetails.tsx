@@ -18,8 +18,6 @@ export const WeatherDetails = () => {
       <Text variant={'h2'}>Temperature : 23°C</Text>
       </div>
       </div>
-
-
         </Card>
       </>
    

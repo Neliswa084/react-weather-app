@@ -1,10 +1,12 @@
 .hourly-forecast-container{
     display: flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    gap: 10px
+  flex-wrap: nowrap;     
+  overflow-x: auto;       
+  padding-bottom: 8px;
 }
 
 .hourly-forecast-content {
-line-height: 40px;
+ min-width: 80px;
+  text-align: center;       
+  line-height: 40px;
 }

@@ -1,41 +1,18 @@
 import React from 'react'
-import {Text} from '../../Components/Text/Text'
-import { Card } from '../Card/Card'
-
-// export type SavedLocationProps = {
-
-//     city: string ,
-//     temparature: string,
-//     weatherCondition: string,
-   
-// }
+import styles from './SavedLocation.module.css'
+import { SavedLocationCard } from './SavedLocationCard'
 
 export const SavedLocation = () => {
   return (
-    <>
-    <Card>
-        <div>
-        <Text variant={'h2'}>CapeTown</Text>
-        <Text variant={'h3'}>18°</Text>
-        <Text variant={'h4'}>Cloudy⛅</Text>
+  <>
+   <div className={styles['saved-container']}>
+     <h3>📌 Saved Locations</h3>
+    <div className={styles['cards-row']}>
+    <SavedLocationCard city="Cape Town" temperature="18°" condition="Cloudy⛅" />
+      <SavedLocationCard city="Durban" temperature="28°" condition="Sunny☀️" />
+      <SavedLocationCard city="PMB" temperature="24°" condition="Sunny☀️" />
+      </div>
 </div>
-    </Card>
-    
-       <Card>
-
-        <Text variant={'h2'}>Durban</Text>
-        <Text variant={'h3'}>28°</Text>
-        <Text variant={'h4'}>Sunny</Text>
-
-    </Card>
-       <Card>
-
-        <Text variant={'h2'}>PMB</Text>
-        <Text variant={'h3'}>24°</Text>
-        <Text variant={'h4'}>Sunny</Text>
-
-    </Card>
-    
-    </>
+  </>
   )
 }

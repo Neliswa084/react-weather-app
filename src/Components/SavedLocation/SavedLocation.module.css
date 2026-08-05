@@ -1,0 +1,10 @@
+.saved-container {
+  padding: 16px 24px;
+}
+
+.cards-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;   
+
+}
