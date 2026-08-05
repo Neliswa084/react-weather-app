@@ -1,0 +1,17 @@
+.forecast-switch-tab{
+    align-content: center;
+    align-items: center;
+    display: flex;
+  justify-content: center;
+  padding: 40px;
+    
+
+}
+button{
+    width: 100px;
+    border-radius: 30px;
+}
+.active {
+    background-color: #4783aa;
+    color: white;
+}

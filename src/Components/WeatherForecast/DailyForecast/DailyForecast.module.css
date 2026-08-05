@@ -1,0 +1,10 @@
+.daily-forecast-container{
+    display:flex;
+      flex-direction:row;
+ justify-content: space-between;
+
+    
+}
+.daily-forecast-content{
+  line-height: 30px;
+}

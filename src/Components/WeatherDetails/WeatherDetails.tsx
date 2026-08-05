@@ -6,7 +6,7 @@ import styles from './WeatherDetails.module.css'
 export const WeatherDetails = () => {
   return (
     <>
-        <Card>
+        <Card >
      <div className={styles['weather-details-container']}>
       <div className={styles['card']}>
        <Text variant={'h2'}>Humidity 50%</Text>
