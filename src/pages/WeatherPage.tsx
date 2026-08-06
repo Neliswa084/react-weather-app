@@ -22,22 +22,22 @@ export const WeatherPage = () => {
 useEffect(() => {
   const fecthWeatherData = async () => {
     try {
-      // const response = await fetch(`https://api.weatherstack.com/current?access_key=${import.meta.env.VITE_WEATHER_API_KEY}&query=Durban`);
-      // if (!response.ok) {
-      //   throw new Error('Failed to fetch weather');
-      // }
-      // const data = await response.json();
-       const data = {
-        location: { name: 'Durban', localtime: '2026-08-05 21:00' },
-        current: {
-          temperature: 19,
-          humidity: 63,
-          wind_speed: 10,
-          feelslike: 17,
-          weather_descriptions: ['Clear'],
-          weather_icons: ['https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png']
-        }
+      const response = await fetch(`https://api.weatherstack.com/current?access_key=${import.meta.env.VITE_WEATHER_API_KEY}&query=Durban`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch weather');
       }
+      const data = await response.json();
+      //  const data = {
+      //   location: { name: 'Durban', localtime: '2026-08-05 21:00' },
+      //   current: {
+      //     temperature: 19,
+      //     humidity: 63,
+      //     wind_speed: 10,
+      //     feelslike: 17,
+      //     weather_descriptions: ['Clear'],
+      //     weather_icons: ['https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png']
+      //   }
+      // }
 
   setWeatherData({
   city: data.location.name,
