@@ -38,6 +38,7 @@ useEffect(() => {
       //     weather_icons: ['https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png']
       //   }
       // }
+      console.log('Weather data fetched:', data);
 
   setWeatherData({
   city: data.location.name,
@@ -71,8 +72,8 @@ if (error) {
 
   return (
     <>
-    <CurrentWeather/>
-    <WeatherDetails />
+    <CurrentWeather weather={weatherData}/>
+    <WeatherDetails weather={weatherData} />
     <ForecastTab activeTab={activeTab} onTabChange={setActiveTab}/>
     {activeTab ==='hourly' && <HourlyForecast/>}
     {activeTab ==='daily' && <DailyForecast/>}
