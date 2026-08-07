@@ -8,6 +8,7 @@ import { DailyForecast } from '../Components/WeatherForecast/DailyForecast/Daily
 import { SavedLocationCard } from '../Components/SavedLocation/SavedLocationCard'
 import { SavedLocation } from '../Components/SavedLocation/SavedLocation'
 import {type WeatherProps} from '../Components/Type/WeatherProps'
+import {type ForecastProps} from '../Components/Type/ForecastProps'
 
 export const WeatherPage = () => {
   
@@ -16,13 +17,14 @@ export const WeatherPage = () => {
   const [weatherData, setWeatherData] = useState<WeatherProps | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-
+  const [forecast,setForecast] = useState<ForecastProps | null>(null)
+  
 
 
 useEffect(() => {
   const fecthWeatherData = async () => {
     try {
-      const response = await fetch(`https://api.weatherstack.com/current?access_key=${import.meta.env.VITE_WEATHER_API_KEY}&query=Durban`);
+      const response = await fetch(`https://api.weatherstack.com/current?access_key=${import.meta.env.VITE_WEATHER_API_KEY}&query=Pietermaritzburg`);
       if (!response.ok) {
         throw new Error('Failed to fetch weather');
       }
@@ -62,6 +64,7 @@ useEffect(() => {
 };
 fecthWeatherData();
 }, []);
+  
 
 if (loading) {
   return <div>Loading...</div>
@@ -69,7 +72,7 @@ if (loading) {
 if (error) {
   return <p>Error : {error}</p>
 }
-
+  
   return (
     <>
     <CurrentWeather weather={weatherData}/>
