@@ -1,5 +1,3 @@
-import React from 'react'
-import {Text} from '../../Components/Text/Text'
 import styles from './Searchbar.module.css'
 import { useNavigate } from 'react-router-dom'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './SavedLocation.module.css'
 import { SavedLocationCard } from './SavedLocationCard'
 

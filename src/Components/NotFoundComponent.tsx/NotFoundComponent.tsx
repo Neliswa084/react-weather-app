@@ -1,4 +1,3 @@
-import React from 'react'
 import {Text} from '../../Components/Text/Text'
 import styles from './NotFoundComponent.module.css'
 

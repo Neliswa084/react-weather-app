@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './Navbar.module.css'
-import { Searchbar } from '../Search/Searchbar'
 import { Text } from '../Text/Text'
 import { TempToggle } from '../TempToggle/TempToggle'
 import { DarkMode } from '../DarkModeToggle/DarkMode'

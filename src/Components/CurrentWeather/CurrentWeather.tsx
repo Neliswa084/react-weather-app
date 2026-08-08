@@ -1,7 +1,7 @@
 import React from 'react'
 import {Text} from '../../Components/Text/Text'
 import styles from './CurrentWeather.module.css'
-import {NavLink ,useNavigate} from 'react-router-dom'
+import {NavLink } from 'react-router-dom'
 import backIcon from '../../assets/back.png'
 
 import { type WeatherProps } from '../../Components/Type/WeatherProps'

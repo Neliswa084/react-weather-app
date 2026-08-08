@@ -1,4 +1,3 @@
-import React from 'react'
 import { Text } from '../../Text/Text'
 import { Card } from '../../Card/Card'
 import styles from './DailyForecast.module.css'
