@@ -4,17 +4,16 @@ import { Text } from '../Text/Text'
 
 type SavedLocationCardProps = {
   city: string
-  temperature: string
-  condition: string
+   onClick: () => void
 }
-
-export const SavedLocationCard:React.FC<SavedLocationCardProps> = ({ city, temperature, condition }) => {
+export const SavedLocationCard:React.FC<SavedLocationCardProps> = ({ city,onClick }) => {
   return (
     
-    <Card>
-      <Text variant={'h2'}>{city}</Text>
-      <Text variant={'h3'}>{temperature}</Text>
-      <Text variant={'h4'}>{condition}</Text>
-    </Card>
+     <div onClick={onClick} style={{ cursor: 'pointer' }}>
+      <Card>
+        <Text variant='h2'>{city}</Text>
+        <Text variant='p'>Tap to view weather</Text>
+      </Card>
+    </div>
   )
 }

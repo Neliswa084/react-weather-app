@@ -65,6 +65,11 @@ useEffect(() => {
   weatherCondition: data.weather[0].description,
   weatherIcon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
 })
+const savedCities: string[] = JSON.parse(localStorage.getItem('savedCities') || '[]')
+if (city && !savedCities.includes(city)) {
+  savedCities.push(city)
+  localStorage.setItem('savedCities', JSON.stringify(savedCities))
+}
   setHourlyData(
         forecastJson.days[0].hours.map((hourly: any) => ({
           time: hourly.datetime,
