@@ -1,40 +1,26 @@
 import { Text } from '../../Text/Text'
 import styles from './HourlyForecast.module.css'
 import { Card } from '../../Card/Card'
+import { type HourlyForecastProps } from '../../../Components/Type/ForecastProps'
 
-export const HourlyForecast = () => {
+type HourlyProps = {
+    data: HourlyForecastProps[]
+}
+
+export const HourlyForecast:React.FC<HourlyProps> = ({data}) => {
     return (
         <>
         <Card>
-            <Text variant='h1'>Hourly Forecast</Text>
-            <div className={styles['hourly-forecast-container']}>
-                <div className={styles['hourly-forecast-content']}>
-                    <Text variant='p' >6 AM</Text>
-                    💨
-                    <Text variant='h2' >22°C </Text>
-                </div>
-
-                <div className={styles['hourly-forecast-content']}>
-                    <Text variant='p' >9 AM</Text>
-                    ⛅
-                    <Text variant='h2' >23°C </Text>
-                </div>
-                <div className={styles['hourly-forecast-content']}>
-                    <Text variant='p' >12 PM</Text>
-                    ☀️
-                    <Text variant='h2' >27°C </Text>
-                </div>
-                <div className={styles['hourly-forecast-content']}>
-                    <Text variant='p' >3 PM</Text>
-                    ☀️
-                    <Text variant='h2' >28°C </Text>
-                </div>
-                <div className={styles['hourly-forecast-content']}>
-                    <Text variant='p' >6 PM</Text>
-                    🌥️
-                    <Text variant='h2' >25°C </Text>
-                </div>
-            </div>
+          <Text variant='h1'>Hourly Forecast</Text>
+      <div className={styles['hourly-forecast-container']}>
+        {data.map((hour) => (
+          <div key={hour.time} className={styles['hourly-forecast-content']}>
+            <Text variant='p'>{hour.time}</Text>
+            <Text variant='p'>{hour.weatherCondition}</Text>
+            <Text variant='h2'>{hour.temp}°C</Text>
+          </div>
+        ))}
+      </div>
             </Card>
         </>
     )

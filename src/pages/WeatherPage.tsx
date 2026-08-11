@@ -6,7 +6,8 @@ import { HourlyForecast } from '../Components/WeatherForecast/HourlyForecast/Hou
 import { DailyForecast } from '../Components/WeatherForecast/DailyForecast/DailyForecast'
 import { SavedLocation } from '../Components/SavedLocation/SavedLocation'
 import {type WeatherProps} from '../Components/Type/WeatherProps'
-
+import { type HourlyForecastProps } from '../Components/Type/ForecastProps'
+import {type DailyForecastProps} from '../Components/Type/ForecastProps'
 
 export const WeatherPage = () => {
   
@@ -15,30 +16,33 @@ export const WeatherPage = () => {
   const [weatherData, setWeatherData] = useState<WeatherProps | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  // const [forecast,setForecast] = useState<ForecastProps | null>(null)
+const [hourlyData, setHourlyData] = useState<HourlyForecastProps[]>([])
+const [dailyData, setDailyData] = useState<DailyForecastProps[]>([])
   
-
+const city = 'Pietermaritzburg'
 
 useEffect(() => {
-  const fecthWeatherData = async () => {
+  const fetchWeatherData = async () => {
     try {
-      const response = await fetch(`https://api.weatherstack.com/current?access_key=${import.meta.env.VITE_WEATHER_API_KEY}&query=Pietermaritzburg`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch weather');
+      const [ forecastResponse] = await Promise.all([
+        // fetch(`https://api.weatherstack.com/current?access_key=${import.meta.env.VITE_WEATHER_API_KEY}&query=${city}`)
+        fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${import.meta.env.VITE_FORECAST_API_KEY}&unitGroup=metric&include=hours,days`)
+      ])
+      // const data = await response.json();
+      //  const data = await weatherResponse.json()
+      const forecastJson = await forecastResponse.json()
+       const data = {
+        location: { name: 'Durban', localtime: '2026-08-05 21:00' },
+        current: {
+          temperature: 19,
+          humidity: 63,
+          wind_speed: 10,
+          feelslike: 17,
+          weather_descriptions: ['Clear'],
+          weather_icons: ['https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png']
+        }
       }
-      const data = await response.json();
-      //  const data = {
-      //   location: { name: 'Durban', localtime: '2026-08-05 21:00' },
-      //   current: {
-      //     temperature: 19,
-      //     humidity: 63,
-      //     wind_speed: 10,
-      //     feelslike: 17,
-      //     weather_descriptions: ['Clear'],
-      //     weather_icons: ['https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png']
-      //   }
-      // }
-      console.log('Weather data fetched:', data);
+      // console.log('Weather data fetched:', data);
 
   setWeatherData({
   city: data.location.name,
@@ -50,7 +54,25 @@ useEffect(() => {
   weatherCondition: data.current.weather_descriptions[0],
   weatherIcon: data.current.weather_icons[0]
    })
-   console.log('Weather data saved:', weatherData)
+  setHourlyData(
+        forecastJson.days[0].hours.map((hourly: any) => ({
+          time: hourly.datetime,
+          temp: hourly.temp,
+          weatherCondition: hourly.conditions,
+          weatherIcon: hourly.icon
+        }))
+      )
+
+      setDailyData(
+        forecastJson.days.map((daily: any) => ({
+          date: daily.datetime,
+          tempMax: daily.tempmax,
+          tempMin: daily.tempmin,
+          weatherCondition: daily.conditions,
+          weatherIcon: daily.icon
+        }))
+      )
+
        
       }
       catch (error) {
@@ -60,7 +82,7 @@ useEffect(() => {
         setLoading(false);
   }
 };
-fecthWeatherData();
+fetchWeatherData();
 }, []);
   
 
@@ -76,8 +98,8 @@ if (error) {
     <CurrentWeather weather={weatherData}/>
     <WeatherDetails weather={weatherData} />
     <ForecastTab activeTab={activeTab} onTabChange={setActiveTab}/>
-    {activeTab ==='hourly' && <HourlyForecast/>}
-    {activeTab ==='daily' && <DailyForecast/>}
+    {activeTab ==='hourly' && <HourlyForecast data={hourlyData}/>}
+    {activeTab ==='daily' && <DailyForecast data={dailyData}/>}
     <SavedLocation />
 
     </>
