@@ -1,8 +1,12 @@
-.hourly-forecast-container{
+/* .hourly-forecast-container{
     display: flex;
   flex-wrap: nowrap;     
   overflow-x: auto;       
   padding-bottom: 8px;
+  align-content: space-between;
+  
+ 
+   
 }
 
 .hourly-forecast-content {
@@ -11,6 +15,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
   padding: 8px 0;
+  border-radius: 10px;
+ background-color: var(--card-bg);  
+margin: 20px;
+
+
+
+  
+} */
+
+.hourly-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
 }
+
+.hourly-list::-webkit-scrollbar { height: 4px; }
+.hourly-list::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+.hourly-item {
+  min-width: 80px;
+  padding: 16px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.time {
+   font-size: 12px; 
+   color: var(--primary-color);
+}
+.icon { 
+  font-size: 22px;
+ }
+.temp {
+   font-size: 16px;
+    font-weight: 600; }

@@ -1,4 +1,4 @@
-// for each hour in HourlyForecast
+
 export type HourlyForecastProps = {
   time: string          
   temp: number
@@ -6,7 +6,6 @@ export type HourlyForecastProps = {
   weatherIcon: string
 }
 
-// for each day in DailyForecast
 export type DailyForecastProps = {
   date: string           
   tempMax: number        

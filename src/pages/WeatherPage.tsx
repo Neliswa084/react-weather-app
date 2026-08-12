@@ -27,11 +27,12 @@ useEffect(() => {
     try {
       const [ weatherResponse,forecastResponse] = await Promise.all([
          fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`),
-        fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${import.meta.env.VITE_FORECAST_API_KEY}&unitGroup=metric&include=hours,days`)
+         fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${import.meta.env.VITE_FORECAST_API_KEY}&unitGroup=metric&include=hours,days`)
       ])
       // const data = await response.json();
        const data = await weatherResponse.json()
       const forecastJson = await forecastResponse.json()
+      
       //  const data = {
       //   location: { name: 'Durban', localtime: '2026-08-05 21:00' },
       //   current: {
