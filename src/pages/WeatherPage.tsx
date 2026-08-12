@@ -10,6 +10,9 @@ import { type HourlyForecastProps } from '../Components/Type/ForecastProps'
 import {type DailyForecastProps} from '../Components/Type/ForecastProps'
 import { useParams } from 'react-router'
 
+
+
+
 export const WeatherPage = () => {
   
   const[activeTab, setActiveTab] = useState("hourly")
@@ -112,7 +115,7 @@ if (error) {
   
   return (
     <>
-    <CurrentWeather weather={weatherData}/>
+    <CurrentWeather weather={weatherData}  />
     <WeatherDetails weather={weatherData} />
     <ForecastTab activeTab={activeTab} onTabChange={setActiveTab}/>
     {activeTab ==='hourly' && <HourlyForecast data={hourlyData}/>}

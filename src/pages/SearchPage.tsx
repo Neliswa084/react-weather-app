@@ -1,6 +1,5 @@
 
 import { SavedLocation } from '../Components/SavedLocation/SavedLocation'
-import { SavedLocationCard } from '../Components/SavedLocation/SavedLocationCard'
 import { Searchbar } from '../Components/Search/Searchbar'
 
 

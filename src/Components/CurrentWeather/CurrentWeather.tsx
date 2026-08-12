@@ -8,8 +8,11 @@ import { type WeatherProps } from '../../Components/Type/WeatherProps'
 
 type CurrentWeatherProps={
   weather: WeatherProps | null
+ 
 }
 export const CurrentWeather:React.FC<CurrentWeatherProps> = ({weather}) => {
+
+
   return (
     <>
       <NavLink to={'/'} className={styles.link} >
