@@ -24,7 +24,7 @@ function App() {
      />
      <Routes>
       <Route path='/'  element={<SearchPage/>} />
-      <Route path='/weather/:city' element ={<WeatherPage  />} />
+      <Route path='/weather/:city' element ={<WeatherPage units={units} />} />
       <Route path='*' element={<NotFound/>}/>
      </Routes>
 
