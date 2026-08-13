@@ -9,7 +9,8 @@ export const Searchbar = () => {
   const navigate = useNavigate()
   const navigateToWeatherPage = () => {
     if (city.trim() === '' ) return
-navigate(`/weather/${city}`)
+     const formattedCity = city.replace(/([a-z])([A-Z])/g, '$1 $2').trim()
+ navigate(`/weather/${formattedCity}`)
   }
 
   return (
