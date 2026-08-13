@@ -1,7 +1,7 @@
 import React from 'react'
 import {Text} from '../../Components/Text/Text'
 import styles from './CurrentWeather.module.css'
-import {NavLink } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 import backIcon from '../../assets/back.png'
 
 import { type WeatherProps } from '../../Components/Type/WeatherProps'
@@ -14,14 +14,17 @@ type CurrentWeatherProps={
 export const CurrentWeather:React.FC<CurrentWeatherProps> = ({weather,units}) => {
   if(!weather) return null
 
+   const navigate = useNavigate()
+   const handleBack = () =>{
+    navigate('/')
+   }
   const temp = units === "C°" ? weather.temperature
   : (weather.temperature * 1.8) + 32;
 
   return (
     <>
-      <NavLink to={'/'} className={styles.link} >
-         <img className={styles['icon']} src={backIcon} alt="Back" />
-         Back to Search</NavLink>
+     
+    <button className={styles['buttonback']} onClick={handleBack}>BackToSearch</button>
     <div className={styles['current-weather-container']}>
       <div className={styles['current-weather-details']}>
         <Text variant={'h2'}>{weather.city}</Text>
