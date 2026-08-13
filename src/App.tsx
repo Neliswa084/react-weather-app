@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import {BrowserRouter, Routes,Route} from 'react-router-dom'
+import {Routes,Route} from 'react-router-dom'
 import { SearchPage } from './pages/SearchPage'
 import { WeatherPage } from './pages/WeatherPage'
 import { NotFound } from './pages/NotFound'
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    
     <div className='App' data-theme={isDark ? "dark" : "light"} >
      {/* <Navbar 
      units={units} 
@@ -34,7 +34,7 @@ function App() {
 
       
     </div>
-   </BrowserRouter>
+  
     </>
   )
 }
