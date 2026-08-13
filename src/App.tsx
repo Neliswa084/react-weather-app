@@ -16,15 +16,19 @@ function App() {
   return (
     <>
     <div className='App' data-theme={isDark ? "dark" : "light"} >
-     <Navbar 
+     {/* <Navbar 
      units={units} 
      changeUnits={(newUnits) => setUnits(newUnits)}
      isChecked={isDark}
      handleChange={() => setIsDark(!isDark)}
-     />
+     /> */}
      <Routes>
       <Route path='/'  element={<SearchPage/>} />
-      <Route path='/weather/:city' element ={<WeatherPage units={units} />} />
+      <Route path='/weather/:city' element ={<WeatherPage 
+      units={units} changeUnits={(newUnits) => setUnits(newUnits)} 
+       isChecked={isDark}
+       handleChange={() => setIsDark(!isDark)}
+       />} />
       <Route path='*' element={<NotFound/>}/>
      </Routes>
 
