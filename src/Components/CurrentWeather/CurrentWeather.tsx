@@ -26,7 +26,8 @@ export const CurrentWeather:React.FC<CurrentWeatherProps> = ({weather,units}) =>
       <div className={styles['current-weather-details']}>
         <Text variant={'h2'}>{weather.city}</Text>
         <Text variant={'p'}>{weather.time}</Text>
-        <Text variant={'h1'}>{temp}°C</Text>
+        {/* <Text variant={'h1'}>{temp}°C</Text> */}
+        <Text variant={'h1'}>{Math.round(temp)}{units === 'F°' ? '°F' : '°C'}</Text>
         <Text variant={'p'}>{weather.weatherCondition}</Text>
         </div>
       <div className={styles['current-weather-icon']}>

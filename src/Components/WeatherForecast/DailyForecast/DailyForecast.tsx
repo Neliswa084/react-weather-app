@@ -6,6 +6,7 @@ import { type DailyForecastProps } from '../../Type/ForecastProps'
 
 type DailyProps = {
   data: DailyForecastProps[]
+  units: string
 }
 
 const getEmoji = (icon: string) => {
@@ -28,13 +29,15 @@ const formatDate = (dateStr: string) => {
   }
 }
 
-export const DailyForecast: React.FC<DailyProps> = ({ data }) => {
+export const DailyForecast: React.FC<DailyProps> = ({ data ,units}) => {
   return (
     <Card>
       <Text variant='h1'>Daily Forecast</Text>
       <div className={styles['daily-list']}>
         {data.map((day) => {
           const { day: dayName, date } = formatDate(day.date)
+           const tempMax = units === 'F°' ? (day.tempMax * 1.8) + 32 : day.tempMax
+           const tempMin = units === 'F°' ? (day.tempMin * 1.8) + 32 : day.tempMin
           return (
             <div key={day.date} className={styles['daily-item']}>
               <div className={styles.day}>
@@ -43,8 +46,10 @@ export const DailyForecast: React.FC<DailyProps> = ({ data }) => {
               <span className={styles.icon}>{getEmoji(day.weatherIcon)}</span>
               <span className={styles.condition}>{day.weatherCondition}</span>
               <div className={styles.highAndLow}>
-                <span className={styles.high}>H: {day.tempMax}°</span>
-                <span className={styles.low}>L: {day.tempMin}°</span>
+                <span className={styles.high}>H: {Math.round(tempMax)}°</span>
+                <span className={styles.low}>L: {Math.round(tempMin)}°</span>
+               
+                
               </div>
             </div>
           )

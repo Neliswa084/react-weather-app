@@ -118,10 +118,10 @@ if (error) {
   return (
     <>
     <CurrentWeather weather={weatherData}  units={units} />
-    <WeatherDetails weather={weatherData}   />
+    <WeatherDetails weather={weatherData}   units={units}/>
     <ForecastTab activeTab={activeTab} onTabChange={setActiveTab}/>
-    {activeTab ==='hourly' && <HourlyForecast data={hourlyData} />}
-    {activeTab ==='daily' && <DailyForecast data={dailyData} />}
+    {activeTab ==='hourly' && <HourlyForecast data={hourlyData} units={units} />}
+    {activeTab ==='daily' && <DailyForecast data={dailyData} units={units} />}
     <SavedLocation />
 
     </>

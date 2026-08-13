@@ -5,7 +5,8 @@ import { Text } from '../../Text/Text'
 import { type HourlyForecastProps } from '../../Type/ForecastProps'
 
 type HourlyProps = {
-  data: HourlyForecastProps[]
+  data: HourlyForecastProps[],
+  units : string
 }
 
 const getEmoji = (icon: string) => {
@@ -28,19 +29,27 @@ const formatTime = (timeStr: string) => {
   return `${h - 12} PM`
 }
 
-export const HourlyForecast: React.FC<HourlyProps> = ({ data }) => {
+export const HourlyForecast: React.FC<HourlyProps> = ({ data ,units}) => {
+  
   return (
+    <>
     <Card>
       <Text variant='h1'>Hourly Forecast</Text>
       <div className={styles['hourly-list']}>
-        {data.map((hour) => (
+        {data.map((hour) => {
+          const temp = units === 'F°' ? (hour.temp * 1.8) + 32 : hour.temp
+        return(
           <div key={hour.time} className={styles['hourly-item']}>
+            
             <span className={styles.time}>{formatTime(hour.time)}</span>
             <span className={styles.icon}>{getEmoji(hour.weatherIcon)}</span>
-            <span className={styles.temp}>{hour.temp}°C</span>
+            <span className={styles.temp}>{Math.round(temp)}{units === 'F°' ? '°F' : '°C'}</span>
+            
           </div>
-        ))}
+        )
+})}
       </div>
     </Card>
+    </>
   )
 }
