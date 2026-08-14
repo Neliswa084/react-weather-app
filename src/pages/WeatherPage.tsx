@@ -9,7 +9,6 @@ import {type WeatherProps} from '../Components/Type/WeatherProps'
 import { type HourlyForecastProps } from '../Components/Type/ForecastProps'
 import {type DailyForecastProps} from '../Components/Type/ForecastProps'
 import { useParams } from 'react-router'
-import { Navbar } from '../Components/Navbar/Navbar'
 
 
 type  WeatherPageProps={
