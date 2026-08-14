@@ -14,13 +14,11 @@ import { Navbar } from '../Components/Navbar/Navbar'
 
 type  WeatherPageProps={
   units:string
-  changeUnits: (newUnits: string) => void
-    isChecked:boolean
-    handleChange:() => void 
+ 
 
 }
 
-export const WeatherPage:React.FC<WeatherPageProps> = ({units ,changeUnits,isChecked,handleChange}) => {
+export const WeatherPage:React.FC<WeatherPageProps> = ({units }) => {
   
   const[activeTab, setActiveTab] = useState("hourly")
 
@@ -107,7 +105,7 @@ if (error) {
   
   return (
     <>
-    <Navbar units={units} changeUnits={changeUnits} handleChange={handleChange} isChecked={isChecked}/>
+    
     <CurrentWeather weather={weatherData}  units={units} />
     <WeatherDetails weather={weatherData}   units={units}/>
     <ForecastTab activeTab={activeTab} onTabChange={setActiveTab}/>

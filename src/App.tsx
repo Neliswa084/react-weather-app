@@ -4,6 +4,7 @@ import {Routes,Route} from 'react-router-dom'
 import { SearchPage } from './pages/SearchPage'
 import { WeatherPage } from './pages/WeatherPage'
 import { NotFound } from './pages/NotFound'
+import { Navbar } from './Components/Navbar/Navbar'
 
 function App() {
 
@@ -16,18 +17,16 @@ function App() {
     <>
     
     <div className='App' data-theme={isDark ? "dark" : "light"} >
-     {/* <Navbar 
+     <Navbar 
      units={units} 
      changeUnits={(newUnits) => setUnits(newUnits)}
      isChecked={isDark}
      handleChange={() => setIsDark(!isDark)}
-     /> */}
+     />
      <Routes>
       <Route path='/'  element={<SearchPage/>} />
       <Route path='/weather/:city' element ={<WeatherPage 
-      units={units} changeUnits={(newUnits) => setUnits(newUnits)} 
-       isChecked={isDark}
-       handleChange={() => setIsDark(!isDark)}
+      units={units} 
        />} />
       <Route path='*' element={<NotFound/>}/>
      </Routes>
