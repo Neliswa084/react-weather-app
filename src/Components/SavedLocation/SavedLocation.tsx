@@ -1,6 +1,6 @@
 import styles from './SavedLocation.module.css'
 import { SavedLocationCard } from './SavedLocationCard'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 export const SavedLocation = () => {
   const navigate = useNavigate ()

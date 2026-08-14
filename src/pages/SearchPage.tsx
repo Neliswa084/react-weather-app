@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { SavedLocation } from '../Components/SavedLocation/SavedLocation'
 import { Searchbar } from '../Components/Search/Searchbar'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 
 export const SearchPage = () => {
