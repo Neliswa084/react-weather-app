@@ -5,6 +5,24 @@
 .cards-row {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;   
+  flex-wrap: wrap;
+}
 
+/* Responsive */
+@media (max-width: 768px) {
+  .saved-container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 320px) {
+  .saved-container {
+    padding: 12px;
+  }
 }

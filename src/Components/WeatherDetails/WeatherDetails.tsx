@@ -6,32 +6,37 @@ import {type WeatherProps} from '../Type/WeatherProps'
 
 type WeatherDetailsProps = {
   weather: WeatherProps | null
-  units:string
-
+  units: string
 }
 
 export const WeatherDetails:React.FC<WeatherDetailsProps> = ({weather, units}) => {
-    if(!weather) return null
+  if(!weather) return null
 
-    const temp = units === "C°" ? weather.temperature
-  : (weather.temperature * 1.8) + 32;
+  // Convert feels-like temperature based on selected unit
+  const feelsLike = units === 'C°'
+    ? Math.round(weather.feelsLike)
+    : Math.round((weather.feelsLike * 1.8) + 32)
+
+  const unitSymbol = units === 'F°' ? '°F' : '°C'
 
   return (
     <>
-        <Card >
-     <div className={styles['weather-details-container']}>
-      <div className={styles['card']}>
-       <Text variant={'h2'}>Humidity : {weather.humidity}</Text>
-       </div>
-       <div  className={styles['card']}>
-     <Text variant={'h2'}>Wind Speed: {weather.windSpeed}</Text>  
-     </div>
-     <div className={styles['card']}>
-      <Text variant={'h2'}>Temperature : {temp}</Text>
-      </div>
-      </div>
-        </Card>
-      </>
-   
+      <Card>
+        <div className={styles['weather-details-container']}>
+          <div className={styles['detail-card']}>
+            <Text variant={'p'}>💧 Humidity</Text>
+            <Text variant={'h2'}>{weather.humidity}%</Text>
+          </div>
+          <div className={styles['detail-card']}>
+            <Text variant={'p'}>💨 Wind Speed</Text>
+            <Text variant={'h2'}>{Math.round(weather.windSpeed)} m/s</Text>
+          </div>
+          <div className={styles['detail-card']}>
+            <Text variant={'p'}>🌡️ Feels Like</Text>
+            <Text variant={'h2'}>{feelsLike}{unitSymbol}</Text>
+          </div>
+        </div>
+      </Card>
+    </>
   )
 }

@@ -1,9 +1,39 @@
-button {
-    width: 40px;
-    height: 40px;
+.units-container {
+  display: flex;
+  gap: 4px;
+}
+
+.units-container button {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid #4783aa;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.units-container button:hover {
+  background-color: rgba(71, 131, 170, 0.2);
 }
 
 .active {
-    background-color: #4783aa;
-    color: white;
+  background-color: #4783aa;
+  color: white;
+}
+
+.active:hover {
+  background-color: #356b8c;
+}
+
+/* Responsive */
+@media (max-width: 320px) {
+  .units-container button {
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
 }
