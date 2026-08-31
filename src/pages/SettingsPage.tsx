@@ -43,9 +43,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ units, changeUnits, 
   }
 
   const getAlertStatus = () => {
-    if (notificationPermission === 'granted') return '✅ Weather alerts are enabled'
-    if (notificationPermission === 'denied') return '❌ Blocked — allow notifications in your browser settings'
-    return '🔔 Not yet enabled'
+    if (notificationPermission === 'granted') return ' Weather alerts are enabled'
+    if (notificationPermission === 'denied') return 'Blocked — allow notifications in your browser settings'
+    return ' Not yet enabled'
   }
 
   return (
@@ -54,7 +54,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ units, changeUnits, 
 
       {/* Appearance */}
       <Card>
-        <Text variant='h2'>🎨 Appearance</Text>
+        <Text variant='h2'> Appearance</Text>
         <div className={styles['setting-row']}>
           <Text variant='p'>Dark mode</Text>
           <DarkMode isChecked={isDark} handleChange={handleChange} />
@@ -63,7 +63,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ units, changeUnits, 
 
       {/* Temperature Units */}
       <Card>
-        <Text variant='h2'>🌡️ Temperature Units</Text>
+        <Text variant='h2'> Temperature Units</Text>
         <div className={styles['setting-row']}>
           <Text variant='p'>Choose your preferred unit</Text>
           <TempToggle units={units} changeUnits={changeUnits} />
@@ -72,7 +72,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ units, changeUnits, 
 
       {/* Weather Alerts */}
       <Card>
-        <Text variant='h2'>⚠️ Weather Alerts</Text>
+        <Text variant='h2'> Weather Alerts</Text>
         <Text variant='p'>{getAlertStatus()}</Text>
 
         {notificationPermission === 'default' && (
@@ -97,7 +97,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ units, changeUnits, 
       {/* Saved Locations */}
       <Card>
         <div className={styles['saved-header']}>
-          <Text variant='h2'>📌 Saved Locations</Text>
+          <Text variant='h2'> Saved Locations</Text>
           {savedCities.length > 0 && (
             <button onClick={handleClearAll} className={styles['clear-btn']}>
               Clear all
