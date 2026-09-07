@@ -1,3 +1,4 @@
+<img src="https://socialify.git.ci/Neliswa084/react-weather-app/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="react-weather-app" width="640" height="320" />
 # React Weather App
 
 A weather application built with React and TypeScript that shows real-time weather conditions, hourly and daily forecasts, saved locations, dark mode, and offline support — all in one place.
