@@ -1,75 +1,146 @@
-# React + TypeScript + Vite
+# React Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A weather application built with React and TypeScript that shows real-time weather conditions, hourly and daily forecasts, saved locations, dark mode, and offline support — all in one place.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Getting Started
 
-## React Compiler
+### Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js (v18+ recommended)
+- npm
+- An OpenWeatherMap API key — [openweathermap.org](https://openweathermap.org/api)
+- A Visual Crossing API key — [visualcrossing.com](https://www.visualcrossing.com/weather-api)
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd react-weather-app
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the root of the project and add your API keys:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_WEATHER_API_KEY=your_openweather_api_key
+VITE_FORECAST_API_KEY=your_visual_crossing_api_key
+```
+
+### Running the App
+
+```bash
+npm run dev
+```
+
+The app runs at **http://localhost:5173**
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React 19 + TypeScript | UI and component logic |
+| Vite | Build tool and dev server |
+| React Router v6 | Client-side navigation |
+| OpenWeatherMap API | Current weather data |
+| Visual Crossing API | Hourly and 7-day forecast data |
+| CSS Modules | Component-scoped styling |
+| localStorage | Saved locations and offline cache |
+
+---
+
+## 📁 Project Structure
 
 ```
+├── src/
+│   ├── Components/
+│   │   ├── CurrentWeather/       # Current temperature, condition, icon
+│   │   ├── WeatherDetails/       # Humidity, wind speed, feels like
+│   │   ├── WeatherForecast/
+│   │   │   ├── ForecastTabs/     # Hourly / Daily tab switcher
+│   │   │   ├── HourlyForecast/   # Today's hour-by-hour forecast
+│   │   │   └── DailyForecast/    # 7-day forecast
+│   │   ├── SavedLocation/        # Saved cities list and cards
+│   │   ├── Search/               # City search bar
+│   │   ├── Navbar/               # Top nav with dark mode and units toggle
+│   │   ├── DarkModeToggle/       # Light/dark theme toggle
+│   │   ├── TempToggle/           # Celsius / Fahrenheit toggle
+│   │   ├── Type/                 # TypeScript interfaces (WeatherProps, ForecastProps)
+│   │   ├── Card/                 # Reusable card component
+│   │   └── Text/                 # Reusable text component
+│   ├── pages/
+│   │   ├── SearchPage.tsx        # Home — search for a city
+│   │   ├── WeatherPage.tsx       # Weather results for a city or coordinates
+│   │   ├── SettingsPage.tsx      # Theme and units settings
+│   │   └── NotFound.tsx          # 404 page
+│   ├── App.tsx                   # Route definitions and global state
+│   └── main.tsx                  # App entry point
+├── .env                          # API keys (not committed to git)
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## ✨ Features
+
+**Weather Data**
+- Search by city name or GPS coordinates (lat,lon)
+- Current weather: temperature, condition, icon, humidity, wind speed, feels like
+- Hourly forecast for today (from Visual Crossing)
+- 7-day daily forecast with min/max temperatures
+
+**User Experience**
+- Dark mode toggle (light/dark theme applied across the whole app)
+- Celsius / Fahrenheit temperature toggle
+- Saved locations — cities are automatically saved to localStorage when you view them
+- Settings page for changing theme and units
+
+**Offline Support**
+- Weather data is cached to localStorage after every successful fetch
+- If you go offline, the app loads the last saved data and shows an offline banner
+
+**Weather Alerts**
+- Browser notifications for severe weather conditions (storm, thunder, tornado, hurricane, etc.)
+- Requires notification permission to be granted in the browser
+
+---
+
+## 🔗 Pages
+
+| Route | Page | Description |
+|---|---|---|
+| `/` | Search Page | Search for any city by name |
+| `/weather/:city` | Weather Page | Full weather view for that city |
+| `/settings` | Settings | Change theme and temperature units |
+| `*` | Not Found | 404 page for unknown routes |
+
+---
+
+## 🌐 APIs Used
+
+### OpenWeatherMap
+- Endpoint: `https://api.openweathermap.org/data/2.5/weather`
+- Used for: current weather conditions, temperature, humidity, wind, icon
+- Supports city name and lat/lon coordinates
+
+### Visual Crossing
+- Endpoint: `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/:city`
+- Used for: hourly forecast (today) and 7-day daily forecast
+
+---
+
+## ⚠️ Notes
+
+- Keep your `.env` file out of version control — add it to `.gitignore`
+- API keys are free on both OpenWeatherMap and Visual Crossing for personal use
+- Saved locations and cached weather data are stored in your browser's localStorage

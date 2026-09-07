@@ -9,22 +9,26 @@ import { Navbar } from './Components/Navbar/Navbar'
 
 function App() {
 
-  const[units,setUnits]= useState("C°")
-  const[isDark,setIsDark] = useState(false)
+  const [units, setUnits] = useState(() => localStorage.getItem('units') || 'C°')
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('isDark') === 'true')
 
   return (
     <>
     <div className='App' data-theme={isDark ? "dark" : "light"} >
      <Navbar
      units={units}
-     changeUnits={(newUnits) => setUnits(newUnits)}
+     changeUnits={(newUnits) => { setUnits(newUnits); localStorage.setItem('units', newUnits) }}
      isChecked={isDark}
-     handleChange={() => setIsDark(!isDark)}
+     handleChange={() => { setIsDark(!isDark); localStorage.setItem('isDark', String(!isDark)) }}
      />
      <Routes>
       <Route path='/'  element={<SearchPage/>} />
       <Route path='/weather/:city' element={<WeatherPage units={units} />} />
-      <Route path='/settings' element={<SettingsPage units={units} changeUnits={(newUnits) => setUnits(newUnits)} isDark={isDark} handleChange={() => setIsDark(!isDark)} />} />
+      <Route path='/settings' element={<SettingsPage units={units}
+         changeUnits={(newUnits) => { setUnits(newUnits);
+         localStorage.setItem('units', newUnits) }}
+          isDark={isDark} handleChange={() => { setIsDark(!isDark); 
+          localStorage.setItem('isDark', String(!isDark)) }} />} />
       <Route path='*' element={<NotFound/>}/>
      </Routes>
     </div>
